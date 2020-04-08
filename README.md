@@ -14,3 +14,5 @@ Using Thymeleaf for processing our email templates would allow us to use some in
 3. Utility functions: date/number formatting, dealing with lists, arrays…
 4. Easy i18n, integrated with our application’s Spring internationalization infrastructure.
 5. Natural templating: our email templates can be static prototypes, written by UI designers.
+
+Also, given the fact that Thymeleaf has no required dependencies on the servlet API, there would be no need at all to create or send email from a web application. In this example we are going create very simple HTML template.
