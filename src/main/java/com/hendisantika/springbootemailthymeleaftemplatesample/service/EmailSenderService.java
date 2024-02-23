@@ -1,16 +1,16 @@
 package com.hendisantika.springbootemailthymeleaftemplatesample.service;
 
 import com.hendisantika.springbootemailthymeleaftemplatesample.model.Mail;
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.MimeMessage;
+import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.context.Context;
-import org.thymeleaf.spring5.SpringTemplateEngine;
+import org.thymeleaf.spring6.SpringTemplateEngine;
 
-import javax.mail.MessagingException;
-import javax.mail.internet.MimeMessage;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
@@ -24,13 +24,12 @@ import java.nio.charset.StandardCharsets;
  * Time: 03.05
  */
 @Service
+@RequiredArgsConstructor
 public class EmailSenderService {
 
-    @Autowired
-    private JavaMailSender emailSender;
+    private final JavaMailSender emailSender;
 
-    @Autowired
-    private SpringTemplateEngine templateEngine;
+    private final SpringTemplateEngine templateEngine;
 
     public void sendEmail(Mail mail) throws MessagingException, IOException {
         MimeMessage message = emailSender.createMimeMessage();
